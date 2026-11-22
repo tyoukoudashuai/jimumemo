@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B1220">
+  <meta name="description" content="筋力トレーニングの計画と記録を、ひとつの場所に。">
+  <title>HAO FITNESS LOG</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="intelligence.css">
+  <link rel="stylesheet" href="recovery.css">
+  <link rel="stylesheet" href="calendar.css">
+  <script src="js/i18n.js" defer></script>
+  <script src="js/recommendations.js" defer></script>
+  <script src="js/recovery.js" defer></script>
+  <script src="js/model.js" defer></script>
+  <script src="js/calendar.js" defer></script>
+  <script src="js/recommendation-view.js" defer></script>
+  <script src="js/recovery-view.js" defer></script>
+  <script src="js/training.js" defer></script>
+  <script src="js/records.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">メインコンテンツへ移動</a>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard" data-page="dashboard" aria-label="HAO FITNESS LOG ホーム">
+        <img src="assets/mark.svg" width="39" height="39" alt="">
+        <span class="brand-text">HAO FITNESS<span>LOG</span></span>
+      </a>
+      <nav class="navigation" aria-label="メインナビゲーション">
+        <a class="nav-link" href="#dashboard" data-page="dashboard" aria-label="ダッシュボード" aria-current="page"><span data-icon="activity"></span><span class="nav-long-label">ダッシュボード</span><span class="nav-short-label" aria-hidden="true">ホーム</span></a>
+        <a class="nav-link" href="#training" data-page="training" aria-label="トレーニングプラン"><span data-icon="dumbbell"></span><span class="nav-long-label">トレーニングプラン</span><span class="nav-short-label" aria-hidden="true">プラン</span></a>
+        <a class="nav-link" href="#history" data-page="history"><span data-icon="clock"></span><span>履歴</span></a>
+        <a class="nav-link" href="#progress" data-page="progress"><span data-icon="chart"></span><span>進捗</span></a>
+        <a class="nav-link" href="#recovery" data-page="recovery"><span data-icon="target"></span><span>リカバリー</span></a>
+        <a class="nav-link" href="#calendar" data-page="calendar"><span data-icon="calendar"></span><span>カレンダー</span></a>
+      </nav>
+      <div class="storage-status"><span class="storage-dot"></span><span id="storage-label">この端末に保存</span></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <div class="location"><span class="location-prefix">ワークスペース</span><span class="mobile-brand">HAO FITNESS LOG</span><span class="location-divider" data-icon="chevron-right"></span><span id="current-page">ダッシュボード</span></div>
+          <div class="topbar-tools"><select id="language-select" aria-label="Language"><option value="ja">日本語</option><option value="zh">中文</option><option value="en">English</option></select><div class="today"><span data-icon="calendar"></span><time id="today"></time></div></div>
+        </div>
+      </header>
+      <div id="storage-problem" class="storage-problem" role="alert" hidden></div>
+      <main id="main-content" class="main-content" tabindex="-1">
+        <noscript>このアプリを使うには JavaScript を有効にしてください。</noscript>
+      </main>
+    </div>
+  </div>
+  <dialog id="app-dialog" class="app-dialog" aria-labelledby="dialog-title">
+    <form id="dialog-form" novalidate>
+      <div class="dialog-header">
+        <h2 id="dialog-title"></h2>
+        <button class="icon-button" type="button" data-close-dialog aria-label="閉じる"><span data-icon="x"></span></button>
+      </div>
+      <div id="dialog-body" class="dialog-body"></div>
+      <p id="dialog-error" class="dialog-error" role="alert" hidden></p>
+      <div class="dialog-footer">
+        <button class="button button--secondary" type="button" data-close-dialog>キャンセル</button>
+        <button class="button button--primary" id="dialog-submit" type="submit"></button>
+      </div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
